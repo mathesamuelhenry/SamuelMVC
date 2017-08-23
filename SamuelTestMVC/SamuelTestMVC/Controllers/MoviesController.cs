@@ -1,4 +1,5 @@
 ﻿using SamuelTestMVC.Models;
+using SamuelTestMVC.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +15,19 @@ namespace SamuelTestMVC.Controllers
         {
             Movie newMovie = new Movie() { Name = "Shrek" };
 
-            // return View(newMovie);
+            var customers = new List<Customer>
+            {
+                new Customer { Name = "Cust 1" },
+                new Customer { Name = "Cust 2" }
+            };
 
-            // return Content("Hello World");
+            var viewModel = new RandomMovieViewModel()
+            {
+                Movie = newMovie,
+                Customers = customers
+            };
 
-            ViewData["Movie"] = newMovie;
-
-            return View();
+            return View(viewModel);
         }
 
         [Route("movies/released/{year}/{month:regex(\\d{4})}")]

@@ -1,4 +1,4 @@
-﻿@model SamuelTestMVC.Models.Movie
+﻿@model SamuelTestMVC.Models.ViewModels.RandomMovieViewModel
 @using SamuelTestMVC.Models;
 @{
     ViewBag.Title = "Random";
@@ -7,7 +7,18 @@
 
 <!-- https://bootswatch.com/ -->
 
-<h2>@(((Movie) ViewData["Movie"]).Name) </h2>
+@*
+this is a comment on
+multiple lines      
+*@
 
-<!-- Similar to View bag where in the controller you pass in a magic instaance variable 
-    which reads in at runtime-->
+<h2>@Model.Movie.Name</h2>
+
+<ul>
+    @foreach (var customer in Model.Customers)
+    {
+        <li>
+            @customer.Name
+        </li>
+    }
+</ul>
