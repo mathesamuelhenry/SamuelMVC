@@ -1,4 +1,5 @@
 ﻿@model SamuelTestMVC.Models.Movie
+@using SamuelTestMVC.Models;
 @{
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,5 +7,7 @@
 
 <!-- https://bootswatch.com/ -->
 
-<h2>@Model.Name</h2>
+<h2>@(((Movie) ViewData["Movie"]).Name) </h2>
 
+<!-- Similar to View bag where in the controller you pass in a magic instaance variable 
+    which reads in at runtime-->
