@@ -14,7 +14,16 @@ namespace SamuelTestMVC.Controllers
         {
             Movie newMovie = new Movie() { Name = "Shrek" };
 
-            return View(newMovie);
+            //return View(newMovie);
+
+            return Content("Hello World");
+        }
+
+        [Route("movies/released/{year}/{month:regex(\\d{4})}")]
+        public ActionResult ByReleaseDate(int year, int month)
+        {
+            return Content("Year : " + year + "Month : " + month);
+
         }
 
 
